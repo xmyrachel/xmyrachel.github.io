@@ -75,46 +75,93 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-python迭代器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/09/11/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-09-11T01:52:10.938Z" itemprop="datePublished">2021-09-11</time>
+    <a href="/2021/09/11/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-09-11T06:29:40.272Z" itemprop="datePublished">2021-09-11</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/09/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="python迭代器"><a href="#python迭代器" class="headerlink" title="python迭代器"></a>python迭代器</h1><h3 id="1-什么是迭代器（iter）"><a href="#1-什么是迭代器（iter）" class="headerlink" title="1.什么是迭代器（iter）"></a>1.什么是迭代器（iter）</h3><p>迭代器是容器型数据类型，可以同时保存多个数据；可以被遍历；也可以转换成列表和元组<br>打印迭代器的时候无法打印里面的元素；迭代器不支持len操作<br>如果需要迭代器中的元素，必须将元素从迭代器中取出，而且一旦取出元素，这个元素在迭代器中就不存在了。</p>
+<h3 id="2-怎么创建迭代器"><a href="#2-怎么创建迭代器" class="headerlink" title="2.怎么创建迭代器"></a>2.怎么创建迭代器</h3><p>方式一：通过iter将其他序列转换成迭代器<br>方式二：创建生成器对象（生成器可以看成是一种特殊的迭代器）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iter1 = <span class="built_in">iter</span>(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(iter1)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h1 id="print-len-iter1-报错"><a href="#print-len-iter1-报错" class="headerlink" title="print(len(iter1))     # 报错"></a>print(len(iter1))     # 报错</h1><p>“””</p>
+<h3 id="3-获取迭代器中的元素"><a href="#3-获取迭代器中的元素" class="headerlink" title="3.获取迭代器中的元素"></a>3.获取迭代器中的元素</h3><p>1）获取单个元素：next(迭代器)<br>2）for循环遍历<br>“””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(iter1))      <span class="comment"># &#x27;a&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(iter1))      <span class="comment"># &#x27;b&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(iter1))      <span class="comment"># &#x27;c&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+
+<h1 id="print-next-iter1-报错！"><a href="#print-next-iter1-报错！" class="headerlink" title="print(next(iter1))    # 报错！"></a>print(next(iter1))    # 报错！</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> iter1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;x:<span class="subst">&#123;x&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iter2 = <span class="built_in">iter</span>([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>])</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> iter2:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;x:<span class="subst">&#123;x&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="print-next-iter2-StopIteration"><a href="#print-next-iter2-StopIteration" class="headerlink" title="print(next(iter2))        # StopIteration"></a>print(next(iter2))        # StopIteration</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iter3 = <span class="built_in">iter</span>(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(iter3))</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="print-next-iter3-报错"><a href="#print-next-iter3-报错" class="headerlink" title="print(next(iter3))   # 报错"></a>print(next(iter3))   # 报错</h1><h3 id="4-生成器（generator）"><a href="#4-生成器（generator）" class="headerlink" title="4.生成器（generator）"></a>4.生成器（generator）</h3><p>生成器是具备能够产生多个数据能力的一种容器。<br>生成器在获取数据的时候和迭代器一样。</p>
+<ol>
+<li><h5 id="怎么创建生成器"><a href="#怎么创建生成器" class="headerlink" title="怎么创建生成器"></a>怎么创建生成器</h5></li>
+</ol>
+<p>  调用一个带有yield关键字的函数就可以得到一个生成器对象<br>  （如果一个函数中有yield, 那么这个函数在调用的时候不会执行函数体，也不会获取返回值，而是得到一个生成器）<br>  “””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func1</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;====&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;++++&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="literal">False</span>:</span><br><span class="line">        <span class="keyword">yield</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = func1()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;result:&#x27;</span>, result)</span><br></pre></td></tr></table></figure>
+
+
+<p>“””<br>3. ##### 控制生成器产生数据的能力</p>
+<p>  执行生成器对应的函数会遇到几次yield这个生成就能产生多少个数据，每次遇到yield的时候，yield后面值就是对应可以产生的数据。<br>  “””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func2</span>():</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="number">100</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        <span class="keyword">yield</span> i</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gen2 = func2()</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> gen2:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;===:<span class="subst">&#123;x&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func3</span>():</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="number">100</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="number">200</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="number">300</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(func3()))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(func3()))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(func3()))</span><br><span class="line"></span><br><span class="line">gen3 = func3()</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(gen3))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(gen3))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(gen3))</span><br></pre></td></tr></table></figure>
+
+<p>“””<br>练习1：创建一个生成器函数，可以产生前N个偶数，偶数从0开始<br>N -&gt; 5  产生：0，2，4，6，8<br>N -&gt; 3  产生：0，2，4<br>…</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">def num_creater(n: int):</span></span><br><span class="line"><span class="string">    num = 0</span></span><br><span class="line"><span class="string">    for _ in range(n):</span></span><br><span class="line"><span class="string">        yield num</span></span><br><span class="line"><span class="string">        num += 2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">gen4 = num_creater(5)</span></span><br><span class="line"><span class="string">print(next(gen4))</span></span><br><span class="line"><span class="string">for x in gen4:</span></span><br><span class="line"><span class="string">    print(x)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-生成器产生数据的原理"><a href="#5-生成器产生数据的原理" class="headerlink" title="5.生成器产生数据的原理"></a>5.生成器产生数据的原理</h3><p>在通过生成器对象获取数据的时候，程序才会执行生成器对应的函数，每次只yield就会停止，将yield后面的数据作为这次获取到的数据，<br>记录结束位置，下一次获取数据的时候从上一次结束的位置开始执行。<br>“””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func4</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;--------1--------&#x27;</span>)</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">100</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;--------2--------&#x27;</span>)</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">200</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;--------3--------&#x27;</span>)</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">300</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;--------end--------&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gen5 = func4()</span><br><span class="line"><span class="built_in">print</span>(gen5)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;取元素:&#x27;</span>, <span class="built_in">next</span>(gen5))</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;+++++++&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;取元素:&#x27;</span>, <span class="built_in">next</span>(gen5))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;取元素:&#x27;</span>, <span class="built_in">next</span>(gen5))</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="print-‘取元素-’-next-gen5"><a href="#print-‘取元素-’-next-gen5" class="headerlink" title="print(‘取元素:’, next(gen5))"></a>print(‘取元素:’, next(gen5))</h1><h3 id="3-模块"><a href="#3-模块" class="headerlink" title="3.模块"></a>3.模块</h3><p>python中一个py文件就是一个模块</p>
+<ol start="2">
+<li><p>怎么在一个模块中使用另外一个模块的内容<br>注意：如果希望一个模块能够被另外的模块使用，那么这个模块的模块名必须是标识符并且不是关键字<br>一个模块可以使用另外一个模块中所有的全局变量， 但是使用前面必须先导入</p>
+</li>
+<li><p>导入模块<br>import 模块名      -   导入指定模块，导入后可以通过 ‘模块名.’ 的方式使用模块中所有的全局变量<br>from 模块名 import 全局变量1,全局变量2,…   - 导入指定模块，导入后可以直接使用指定的全局变量<br>from 模块名 import *   -   导入指定模块，导入后可以直接使用所有的全局变量<br>import 模块名 as 新模块名  -   对模块重命名，重命名后使用模块的时候使用新模块名<br>from 模块名 import 变量名 as 新变量名   - 对导入的变量重命名<br>“””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入方式一：import</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import test1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(test1.a)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(test1.x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># test1.func1()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入方式二：from...import</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># from test1 import a, func1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(a)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># func1()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入方式三：使用通配符*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># from test1 import *</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(a)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># func1()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入方式四：模块重命名</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import test1 as test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># test1 = 300</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(test1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(test.a, test.x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># test.func1()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入方式五：对变量重命名</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># from test1 import a as a1, x, func1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># a = &#x27;abc&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(a)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(a1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># func1()</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>“””</p>
+<h3 id="6-导入模块的原理"><a href="#6-导入模块的原理" class="headerlink" title="6.导入模块的原理"></a>6.导入模块的原理</h3><p>当通过import或者from-import导入一个模块的时候，系统会自动将这个模块中的代码全部执行一遍<br>“””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import test1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># from test1 import a</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> test1 <span class="keyword">import</span> func1</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-包"><a href="#7-包" class="headerlink" title="7.包"></a>7.包</h3><ol>
+<li><p>什么是包<br>包就是包含__init__.py文件的文件夹</p>
+</li>
+<li><p>使用包中的内容(导入)<br>import 包名    -  直接导入包<br>improt 包.模块   -  可以通过 ‘包.模块.’ 去使用指定模块中的所有全局变量<br>from 包 import 模块1, 模块2,…<br>from 包.模块 import 变量名1, 变量名2,…</p>
+</li>
+<li><p>导入包的原理<br>通过包导入包中的模块的时候，程序会先执行包中__init__.py文件中所有的代码，然后再执行对应模块中的代码。<br>“””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 直接导入包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import files</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 通过包导入模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import files.excel</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># files.excel.read_excel()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(files.excel.x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import files.excel as f_excel</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># f_excel.read_excel()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(f_excel.x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 通过包导入模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># from files import excel, plist</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># excel.read_excel()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># plist.read_plist()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 通过包导入模块中的内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># from files.excel import read_excel</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># read_excel()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 直接使用包中的快捷</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import files</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># files.read_excel()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># from files import read_excel</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># read_excel()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import files</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># files.plist.read_plist()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> files</span><br><span class="line">files.open_file()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;-------------start--------------&#x27;</span>)</span><br><span class="line">a = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func1</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;test1的函数&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;检测网络状态&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;连接服务器&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;获取数据&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;保存数据&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;-------------end--------------&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="这个if语句中的代码在被别的模块导入的时候不会执行，直接运行当前模块的时候会执行"><a href="#这个if语句中的代码在被别的模块导入的时候不会执行，直接运行当前模块的时候会执行" class="headerlink" title="这个if语句中的代码在被别的模块导入的时候不会执行，直接运行当前模块的时候会执行"></a>这个if语句中的代码在被别的模块导入的时候不会执行，直接运行当前模块的时候会执行</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(__name__)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;x:&#x27;</span>, x)</span><br><span class="line">    download()</span><br><span class="line">    download()</span><br><span class="line">    download()</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/11/hello-world/" data-id="cktf53wr90000foueedpf5dpr" data-title="Hello World" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/09/11/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" data-id="cktfexvzt0001okue8urf4ejq" data-title="" class="article-share-link">Teilen</a>
       
       
       
@@ -126,44 +173,219 @@
 
 
   
-    <article id="post-aa" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-python for 循环" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2019/08/01/aa/" class="article-date">
-  <time class="dt-published" datetime="2019-07-31T16:00:00.000Z" itemprop="datePublished">2019-08-01</time>
+    <a href="/2021/09/11/python%20for%20%E5%BE%AA%E7%8E%AF/" class="article-date">
+  <time class="dt-published" datetime="2021-09-11T06:29:40.270Z" itemprop="datePublished">2021-09-11</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/08/01/aa/">Python编程惯例</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="Python惯例"><a href="#Python惯例" class="headerlink" title="Python惯例"></a>Python惯例</h2><p>“惯例”这个词指的是“习惯的做法，常规的办法，一贯的做法”，与这个词对应的英文单词叫“idiom”。由于Python跟其他很多编程语言在语法和使用上还是有比较显著的差别，因此作为一个Python开发者如果不能掌握这些惯例，就无法写出“Pythonic”的代码。下面我们总结了一些在Python开发中的惯用的代码。</p>
-<ol>
-<li><p>让代码既可以被导入又可以被执行。<br>if <strong>name</strong> == ‘<strong>main</strong>‘:</p>
-</li>
-<li><p>用下面的方式判断逻辑“真”或“假”。<br>if x:<br>if not x:</p>
-</li>
-</ol>
+        <h1 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h1><p>“””</p>
+<h3 id="1语法"><a href="#1语法" class="headerlink" title="1语法."></a>1语法.</h3><p>for 变量 in 序列:</p>
+<p>​    循环体</p>
+<h3 id="2-说明："><a href="#2-说明：" class="headerlink" title="2.说明："></a>2.说明：</h3><p>for,in - 关键字1 ，固定写法</p>
+<p>变量       - 写一个变量名。（可以是已经定义过的，也可以是没有定义过的）</p>
+<dl><dt>序列       - 容器型数据类型对应的数据，常见序列：字符串，列表，元组，字典，集合，迭代器，生成器，rang,</dt><dd>固定写法</dd></dl><p>循环体     - 和for保持一个缩进的一条或者多条语句； 就是需要重复执行的代码。</p>
+<p>执行过程：<br>让变量去序列中取值，一个一个的取，取完为止，每取一个值执行一次循环体。<br>for循环循环的次数和序列中元素的个数有关</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">for x in  &#x27;abc&#x27;:</span></span><br><span class="line"><span class="string">    print(&#x27;hello&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">for x in  &#x27;abc123&#x27;:</span></span><br><span class="line"><span class="string">    print(x,&#x27;hello&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">x= <span class="string">&#x27;a&#x27;</span>: <span class="built_in">print</span> (x,<span class="string">&#x27;hello&#x27;</span>) -&gt; <span class="built_in">print</span> (<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;hello&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>“””</p>
+<h3 id="3-range函数"><a href="#3-range函数" class="headerlink" title="3.range函数"></a>3.range函数</h3><p>-是指 产生指定范围的数字序列</p>
+<p>1） range(N)  - 产生[0,N]的数字序列，其中步长是1</p>
+<p>2）rang(M,N)   - 产生[M,N]的数字序列，步长是1</p>
+<p>3） rang(M,N，step)   -  产生[M,N]的数字序列，步长为step指定的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">10</span>):</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">5</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;======用法2：直接的控制循环次数=====&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;hello!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;=======================&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>,<span class="number">20</span>):</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;=======================&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(-<span class="number">10</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;=======================&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>,<span class="number">20</span>,<span class="number">2</span>):</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;=======================&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>,<span class="number">0</span>,-<span class="number">3</span>):</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<h1 id="练习1："><a href="#练习1：" class="headerlink" title="练习1："></a>练习1：</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印100以内所有的偶数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法1：</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;===============方法1=================&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;===============方法2=================&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">100</span>, <span class="number">2</span>):</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="练习2："><a href="#练习2：" class="headerlink" title="练习2："></a>练习2：</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印100 ~ 200中所有个位数是3的数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法1：</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;===============方法1=================&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>, <span class="number">201</span>):</span><br><span class="line">    <span class="keyword">if</span> x % <span class="number">10</span> == <span class="number">3</span>:</span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;===============方法2=================&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">103</span>, <span class="number">201</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="练习3"><a href="#练习3" class="headerlink" title="练习3:"></a>练习3:</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印所有的水仙花数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;===================================&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>, <span class="number">1000</span>):</span><br><span class="line">    ge = num % <span class="number">10</span></span><br><span class="line">    shi = num // <span class="number">10</span> % <span class="number">10</span></span><br><span class="line">    bai = num // <span class="number">100</span></span><br><span class="line">    <span class="keyword">if</span> ge**<span class="number">3</span> + shi**<span class="number">3</span> + bai**<span class="number">3</span> == num:</span><br><span class="line">        <span class="built_in">print</span>(num)</span><br></pre></td></tr></table></figure>
+
+<p>“””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 统计100以内偶数的个数</span></span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span>    <span class="comment"># 保存个数</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">100</span>, <span class="number">2</span>):</span><br><span class="line">    count += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;100以内偶数的个数:&#x27;</span>, count)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2. 统计100以内能被3整除的偶数的个数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法1：</span></span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">100</span>, <span class="number">3</span>):</span><br><span class="line">    <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;100以内能被3整除的偶数的个数:&#x27;</span>, count)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：</span></span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">100</span>, <span class="number">6</span>):</span><br><span class="line">    count += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;100以内能被3整除的偶数的个数:&#x27;</span>, count)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3. 计算1+2+3+...+100的和</span></span><br><span class="line"></span><br><span class="line">sum1 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">101</span>):</span><br><span class="line">    sum1 += x</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;1+2+3+...+100:&#x27;</span>, sum1)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">sum1 = 0 </span></span><br><span class="line"><span class="string">x = 1: sum1 += x -&gt; sum1 += 1 -&gt; sum1 = 0 + 1</span></span><br><span class="line"><span class="string">x = 2: sum1 += x -&gt; sum1 += 2 -&gt; sum1 = 1 + 2</span></span><br><span class="line"><span class="string">x = 3: sum1 += x -&gt; sum1 += 3 -&gt; sum1 = 1 + 2 + 3</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">x = 100: sum1 += x -&gt; sum1 += 100  -&gt; sum1 = 1+2+3+...+100</span></span><br></pre></td></tr></table></figure>
+
+<p>“””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4. 计算所有水仙花数的和</span></span><br><span class="line"></span><br><span class="line">sum1 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>, <span class="number">1000</span>):</span><br><span class="line">    ge = num % <span class="number">10</span></span><br><span class="line">    shi = num // <span class="number">10</span> % <span class="number">10</span></span><br><span class="line">    bai = num // <span class="number">100</span></span><br><span class="line">    <span class="keyword">if</span> ge**<span class="number">3</span> + shi**<span class="number">3</span> + bai**<span class="number">3</span> == num:</span><br><span class="line">        sum1 += num</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;所有水仙花数的和:&#x27;</span>, sum1)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h1><p>“””</p>
+<h3 id="1-语法："><a href="#1-语法：" class="headerlink" title="1.语法："></a>1.语法：</h3><p>while 条件语句:<br>    循环体</p>
+<h3 id="2-说明：-1"><a href="#2-说明：-1" class="headerlink" title="2.说明："></a>2.说明：</h3><dl><dt>while   -   关键字；固定写法<br>条件语句    -   任何有结果的表达式（只有赋值语句不行）</dt><dd>-   固定写法<br>循环体     -   和while保持一个缩进的一条或者多条语句；需要重复执行代码</dd></dl><h3 id="3-执行过程："><a href="#3-执行过程：" class="headerlink" title="3.执行过程："></a>3.执行过程：</h3><p>先判断条件语句是否为True，如果为True就执行循环体，执行完循环体再判断条件是否为True, 如果为True就再执行循环体<br>…以此类推，当条件语句结果为False循环直接结束。<br>“””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用while循环控制程序打印10个&#x27;hello&#x27;</span></span><br><span class="line"></span><br><span class="line">num = <span class="number">10</span></span><br><span class="line"><span class="keyword">while</span> num &gt; <span class="number">0</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line">    num -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># while循环控制循环次数的原则：让条件经历过指定次数后由True变成False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for x in range(10):</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     print(&#x27;hello&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="4-while和for的选择"><a href="#4-while和for的选择" class="headerlink" title="4. while和for的选择"></a>4. while和for的选择</h1><p>for循环：循环次数确定的时候使用</p>
+<p>while循环：循环次数不确定的时候使用 (程序员在写代码的时候没有办法通过任何方式来确定循环次数)</p>
+<h4 id="练习1：-1"><a href="#练习1：-1" class="headerlink" title="练习1："></a>练习1：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提示用户不断输入内容，直到输入的数据是0为止</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">请输入：90</span></span><br><span class="line"><span class="string">请输入：28</span></span><br><span class="line"><span class="string">请输入：abc</span></span><br><span class="line"><span class="string">请输入：op</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">请输入：0</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># value = input(&#x27;请输入:&#x27;)</span></span><br><span class="line"></span><br><span class="line">value = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">while</span> value != <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">    value = <span class="built_in">input</span>(<span class="string">&#x27;请输入:&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/08/01/aa/" data-id="cktf5gjho00006cuefxysg8yc" data-title="Python编程惯例" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/09/11/python%20for%20%E5%BE%AA%E7%8E%AF/" data-id="cktfexvzj0000okuegroo987b" data-title="" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python基础语法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/11/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2021-09-11T06:29:40.266Z" itemprop="datePublished">2021-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="python基础语法"><a href="#python基础语法" class="headerlink" title="python基础语法"></a>python基础语法</h1><p>1.常用快捷键</p>
+<p>ctr+/ -添加/取消注释</p>
+<p>ctr+s - 保存</p>
+<p>ctr+c - 复制拷贝</p>
+<p>ctr+v -粘贴</p>
+<p>ctr+x -剪切</p>
+<p>ctr+a - 全选</p>
+<p>ctr+z -撤销</p>
+<p>ctr+shift+z/ctr+y -反撤销</p>
+<h4 id="2-注释"><a href="#2-注释" class="headerlink" title="2.注释"></a>2.注释</h4><p>注释就是代码中不会被编译执行（不会被解释器解释）的部分。注释的存在不会影响其他程序功能</p>
+<p>注释存在的价值：1）对代码进行注释和说明，增加程序的可读性。2）让有效代码的功能消失。</p>
+<p>1）单行注释：在注释内容前加#</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world&#x27;</span>) <span class="comment"># 单行注释2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>2）多行注释</p>
+<h4 id="3-语句"><a href="#3-语句" class="headerlink" title="3.语句"></a>3.语句</h4><p>一条有效代码就是一条语句</p>
+<p>一般情况下，一条语句占一行，一条语句结束后可以不加分号</p>
+<p>2)一条语句的开头，不能随便加缩进（空格，tab）,一条语句很长需要多行显示，可以用(反斜杠)来实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;你好&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;python&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="4-标示符和关键字"><a href="#4-标示符和关键字" class="headerlink" title="4.标示符和关键字"></a>4.标示符和关键字</h4><p>标识符（名字要求） - 由字母、数字或下划线组成，并且数字不开头</p>
+<p>变量名=89</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">100</span></span><br><span class="line">a1=<span class="number">23</span></span><br><span class="line">a_=<span class="number">30</span></span><br><span class="line">__=<span class="number">23</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># a.b=100 #报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1a=30 #报错</span></span><br><span class="line"></span><br><span class="line">年龄=<span class="number">18</span></span><br><span class="line">age=<span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>2）关键字-本身存在就有特殊意义或者特殊功能的一些标示符[‘False’, ‘None’, ‘True’, ‘and’, ‘as’, ‘assert’, ‘async’, ‘await’, ‘break’, ‘class’, ‘continue’, ‘def’, ‘del’, ‘elif’, ‘else’, ‘except’, ‘finally’</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> keyword</span><br><span class="line"><span class="built_in">print</span>(keyword.kwlist)</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># False=100</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-常用数据和数据类型"><a href="#5-常用数据和数据类型" class="headerlink" title="5.常用数据和数据类型"></a>5.常用数据和数据类型</h4><p>“””<br>1）数字数据 - 用来表示数值大小的数据，例如;年龄值、身高值等在程序中表示数据的时候和数学中的数字表示方式一样（直接写），例如18 +20、3e4<br>   数字对应类型有三种：int（整型）、Float(浮点型)、complex（复数）<br>2）文本数据类型 - 用文字来提供数据的数据，例如：姓名、学校名等<br>   在程序中表示文字数据的时候需要加单引号，例如：’李逍遥’、“四川成都”、’good morning!’<br>4）其他数据类型：List(列表)、dict(字典)<br>“””</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(-<span class="number">2</span>,<span class="number">13</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">3e4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;四川成都&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(true)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+<h5 id="1-数据获取的类型-type"><a href="#1-数据获取的类型-type" class="headerlink" title="1)数据获取的类型 -type"></a>1)数据获取的类型 -type</h5><h5 id="type-数据"><a href="#type-数据" class="headerlink" title="type(数据)"></a>type(数据)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="number">10</span>))  <span class="comment"># &lt;class &#x27;int&#x27;&gt;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="literal">True</span>))  <span class="comment"># &lt;class &#x27;bool&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h5 id="2-类型转换"><a href="#2-类型转换" class="headerlink" title="2)类型转换"></a>2)类型转换</h5><p>类型名（数据） - 将指定数据转换成指定类型</p>
+<p>注意：不是所有的字符串都可以转换成数字，字符串去掉一个引号后是一个整数就可以转成整型，去掉引号是数字的都可以转换成浮点型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.14-&gt;3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="number">3.14</span>)) <span class="comment">#3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(<span class="number">8</span>)) <span class="comment">#8.0</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="literal">True</span>)) <span class="comment">#1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="literal">False</span>)) <span class="comment">#0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(int(&#x27;abc&#x27;)) #报错</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="string">&#x27;123&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(<span class="string">&#x27;132.4&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(<span class="string">&#x27;23&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<h6 id="1-输出函数-将数据打印到控制台-print"><a href="#1-输出函数-将数据打印到控制台-print" class="headerlink" title="1.输出函数(将数据打印到控制台) - print"></a>1.输出函数(将数据打印到控制台) - print</h6><h6 id="1-打印单个数据：print-数据-print-有结果的表达式"><a href="#1-打印单个数据：print-数据-print-有结果的表达式" class="headerlink" title="1) 打印单个数据：print(数据)/print(有结果的表达式)"></a>1) 打印单个数据：print(数据)/print(有结果的表达式)</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">56</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="number">56</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="number">100</span>+<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="2）同时打印多个数据：print（数据1，数据2，数据3，数据4，…-）"><a href="#2）同时打印多个数据：print（数据1，数据2，数据3，数据4，…-）" class="headerlink" title="2）同时打印多个数据：print（数据1，数据2，数据3，数据4，….）"></a>2）同时打印多个数据：print（数据1，数据2，数据3，数据4，….）</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">100</span>,<span class="number">200</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">12.5</span>,<span class="string">&#x27;你好&#x27;</span>,<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span>+<span class="number">20</span>,<span class="number">100</span>,<span class="built_in">type</span>(<span class="number">12.5</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="3-定制结尾符号"><a href="#3-定制结尾符号" class="headerlink" title="3)定制结尾符号"></a>3)定制结尾符号</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># end=&#x27;\n&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(数据1,数据2)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">100</span>)  <span class="comment">#print(100,end=&#x27;\n&#x27;)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">200</span>)  <span class="comment">#print(200,end=&#x27;\n&#x27;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">100</span></span><br><span class="line"><span class="string">200</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">100</span>,end=<span class="string">&#x27;;&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;abc&#x27;</span>,<span class="number">200</span>,end=<span class="string">&#x27;。\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="4-定制数据分隔符"><a href="#4-定制数据分隔符" class="headerlink" title="4)定制数据分隔符"></a>4)定制数据分隔符</h6><p>sep=’ ‘</p>
+<p>数据分隔符的默认值是空格，控制的时候同时打印多个数据的时候，数据之间的分割方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,sep=<span class="string">&#x27;+&#x27;</span>) <span class="comment"># 100+200+300</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,sep=<span class="string">&#x27;+&#x27;</span>,end=<span class="string">&#x27;=&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">100</span>+<span class="number">200</span>+<span class="number">300</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h4 id="2-输入函数-input"><a href="#2-输入函数-input" class="headerlink" title="2.输入函数 - input"></a>2.输入函数 - input</h4><p>变量=input(输入提示信息) -从控制台输入内容，并且将输入的内容保存到变量中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">name=<span class="built_in">input</span>(<span class="string">&#x27;请输入姓名：&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(name)</span><br><span class="line"></span><br><span class="line">注意：通过<span class="built_in">input</span>函数不管输入的内容是什么，返回的数据类型都是字符串（<span class="built_in">str</span>）</span><br><span class="line"></span><br><span class="line">age=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入年龄；&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(age,<span class="built_in">type</span>(age))</span><br><span class="line"><span class="built_in">print</span>(age+<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="1-什么是变量"><a href="#1-什么是变量" class="headerlink" title="1.什么是变量"></a>1.什么是变量</h1><p>变量就是保存数据的容器，将数据保存到变量中以后，就可以通过使用变量来使用数据</p>
+<h1 id="2-定义变量（将数据保存到变量中）"><a href="#2-定义变量（将数据保存到变量中）" class="headerlink" title="2.定义变量（将数据保存到变量中）"></a>2.定义变量（将数据保存到变量中）</h1><p>“””<br>语法：变量名=值<br>说明<br>变量名  - 由程序员自己命名<br>        要求：是标识符；不是关键字<br>        规范：见名知义（看到变量名就大概知道变量中保存的是什么数据），如果有多个单词 单词之间用下划线隔开<br>        不适用系统的函数名类名和模块名<br>    =  -  （赋值符号）固定写法<br>    值 -  任何有结果的表达式，例如：具体的数据、运算表达式、函数调用表达式</p>
+<p>eg:在别的游戏里，像我这么帅的一般都是主角哦！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">message=<span class="string">&#x27;在别的游戏里，像我这么帅的一般都是主角哦！&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(message)</span><br><span class="line"><span class="built_in">print</span>(message)</span><br><span class="line"><span class="built_in">print</span>(message)</span><br><span class="line"><span class="built_in">print</span>(message)</span><br><span class="line"><span class="built_in">print</span>(message)</span><br><span class="line"></span><br><span class="line"><span class="comment"># a*b=100  #报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for=100   #报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print=10</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">100</span>)</span><br><span class="line">name=<span class="string">&#x27;菲菲&#x27;</span></span><br><span class="line">dog_name=<span class="string">&#x27;旺财&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="3-使用变量"><a href="#3-使用变量" class="headerlink" title="3.使用变量"></a>3.使用变量</h1><p>使用变量就是使用变量中保存的数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">num=<span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(num)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span>+<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(num+<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(num))</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="4-重新赋值"><a href="#4-重新赋值" class="headerlink" title="4.重新赋值"></a>4.重新赋值</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name=<span class="string">&#x27;雪儿&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(name)</span><br><span class="line">name=<span class="number">200</span></span><br><span class="line"><span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="5-同时定义多个变量"><a href="#5-同时定义多个变量" class="headerlink" title="5.同时定义多个变量"></a>5.同时定义多个变量</h1><h3 id="1）同时定义多个变量赋相同的值"><a href="#1）同时定义多个变量赋相同的值" class="headerlink" title="1）同时定义多个变量赋相同的值"></a>1）同时定义多个变量赋相同的值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=b=c=<span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># a=200</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># b=200</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># c=200</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(a,b,c)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-同时定义多个变量赋不同的值"><a href="#2-同时定义多个变量赋不同的值" class="headerlink" title="2)同时定义多个变量赋不同的值"></a>2)同时定义多个变量赋不同的值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x,y,z=<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># x=10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># y=20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># c=30</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(x,y,z)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h5 id="定义变量的原理"><a href="#定义变量的原理" class="headerlink" title="定义变量的原理"></a>定义变量的原理</h5><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>5.定义变量和重新给变量赋值的基本原理</p>
+<p>定义变量的时候系统会自动在内存中申请空间，空间申请多少看保存的数据需要多大；</p>
+<p>重新给变量赋值的时候，会重新申请新的内存空间，新的内存空间的大小由新赋值的数据决定</p>
+<h6 id="id函数-id-变量-获取变量保存的数据地址"><a href="#id函数-id-变量-获取变量保存的数据地址" class="headerlink" title="id函数:id(变量) - 获取变量保存的数据地址"></a>id函数:id(变量) - 获取变量保存的数据地址</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num=<span class="number">100</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(num))</span><br><span class="line"></span><br><span class="line">num=<span class="number">1000</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(num))</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/11/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" data-id="cktfexvzu0002okuegbk0g1ve" data-title="" class="article-share-link">Teilen</a>
       
       
       
@@ -182,13 +404,6 @@
           <aside id="sidebar">
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python%E5%9F%BA%E7%A1%80/">Python基础</a></li></ul>
-    </div>
-  </div>
-
 
   
     
@@ -200,7 +415,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li></ul>
     </div>
   </div>
 
@@ -213,11 +428,15 @@
       <ul>
         
           <li>
-            <a href="/2021/09/11/hello-world/">Hello World</a>
+            <a href="/2021/09/11/python%E8%BF%AD%E4%BB%A3%E5%99%A8/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/08/01/aa/">Python编程惯例</a>
+            <a href="/2021/09/11/python%20for%20%E5%BE%AA%E7%8E%AF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/11/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">(no title)</a>
           </li>
         
       </ul>
